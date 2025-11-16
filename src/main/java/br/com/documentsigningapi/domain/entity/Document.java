@@ -22,19 +22,21 @@ public class Document {
         this.owner = owner;
 
         this.uploadDate = LocalDateTime.now();
-
         this.isSigned = false;
         this.signedAt = null;
     }
 
-    public UUID getId() { return id; }
-    public String getTitle() { return title; }
-    public String getFilePath() { return filePath; }
-    public String getFileFormat() { return fileFormat; }
-    public LocalDateTime getUploadDate() { return uploadDate; }
-    public User getOwner() { return owner; }
-    public boolean isSigned() { return isSigned; }
-    public LocalDateTime getSignedAt() { return signedAt; }
+    public Document(UUID id, String title, String filePath, String fileFormat,
+                    LocalDateTime uploadDate, boolean isSigned, LocalDateTime signedAt, User owner) {
+        this.id = id;
+        this.title = title;
+        this.filePath = filePath;
+        this.fileFormat = fileFormat;
+        this.uploadDate = uploadDate;
+        this.isSigned = isSigned;
+        this.signedAt = signedAt;
+        this.owner = owner;
+    }
 
     public void sign() {
         if (this.isSigned) {
@@ -43,4 +45,13 @@ public class Document {
         this.isSigned = true;
         this.signedAt = LocalDateTime.now();
     }
+
+    public UUID getId() { return id; }
+    public String getTitle() { return title; }
+    public String getFilePath() { return filePath; }
+    public String getFileFormat() { return fileFormat; }
+    public LocalDateTime getUploadDate() { return uploadDate; }
+    public boolean isSigned() { return isSigned; }
+    public LocalDateTime getSignedAt() { return signedAt; }
+    public User getOwner() { return owner; }
 }
